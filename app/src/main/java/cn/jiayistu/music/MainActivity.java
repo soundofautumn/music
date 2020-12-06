@@ -51,26 +51,26 @@ public class MainActivity extends AppCompatActivity {
             // For Android < 3.0
             public void openFileChooser(ValueCallback<Uri> valueCallback) {
                 uploadMessage = valueCallback;
-                openImageChooserActivity();
+                openMusicChooserActivity();
             }
 
             // For Android  >= 3.0
             public void openFileChooser(ValueCallback valueCallback, String acceptType) {
                 uploadMessage = valueCallback;
-                openImageChooserActivity();
+                openMusicChooserActivity();
             }
 
             //For Android  >= 4.1
             public void openFileChooser(ValueCallback<Uri> valueCallback, String acceptType, String capture) {
                 uploadMessage = valueCallback;
-                openImageChooserActivity();
+                openMusicChooserActivity();
             }
 
             // For Android >= 5.0
             @Override
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
                 uploadMessageAboveL = filePathCallback;
-                openImageChooserActivity();
+                openMusicChooserActivity();
                 return true;
             }
         });
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl("https://music.jiayistu.cn");
     }
 
-    private void openImageChooserActivity() {
+    private void openMusicChooserActivity() {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.addCategory(Intent.CATEGORY_OPENABLE);
         i.setType("audio/*");
